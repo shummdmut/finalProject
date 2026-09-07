@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food & Cooking Recipes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container header-flex">
+            <div class="logo" id="logo-btn">Recipe<span>Chef</span></div>
+            <nav class="nav">
+                <button class="nav-link active" id="nav-home">Головна</button>
+                <button class="nav-link" id="nav-favorites">Обране (<span id="fav-count">0</span>)</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="home-page" class="page active">
+            <div class="hero">
+                <h1>Знайдіть ідеальний рецепт для смачної вечері</h1>
+                <p>Готуйте легко за покроковими інструкціями від найкращих шеф-кухарів.</p>
+            </div>
+
+            <div class="controls">
+                <input type="text" id="search-input" placeholder="Пошук рецептів за назвою або інгредієнтом...">
+                <select id="category-filter">
+                    <option value="all">Усі категорії</option>
+                    <option value="breakfast">Сніданки</option>
+                    <option value="lunch">Обіди</option>
+                    <option value="dinner">Вечері</option>
+                    <option value="dessert">Десерти</option>
+                </select>
+            </div>
+
+            <div class="recipes-grid" id="recipes-container"></div>
+        </section>
+
+        <section id="detail-page" class="page">
+            <button class="back-btn" id="back-to-home">← Назад до списку</button>
+            <div class="recipe-detail-wrapper" id="recipe-detail-container"></div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 RecipeChef. Усі права захищені.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
