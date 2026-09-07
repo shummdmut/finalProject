@@ -3,7 +3,7 @@ const recipes = [
         id: 1,
         title: "Класична паста Карбонара",
         category: "lunch",
-        image: "https://unsplash.com",
+        image: "img/1.jpg",
         time: "25 хв",
         difficulty: "Легко",
         calories: "650 ккал",
@@ -21,7 +21,7 @@ const recipes = [
         id: 2,
         title: "Панкейки з чорницею та медом",
         category: "breakfast",
-        image: "https://unsplash.com",
+        image: "img/2.jpg",
         time: "20 хв",
         difficulty: "Легко",
         calories: "380 ккал",
@@ -40,7 +40,7 @@ const recipes = [
         id: 3,
         title: "Лосось на грилі з аспарагусом",
         category: "dinner",
-        image: "https://unsplash.com",
+        image: "img/3.jpg",
         time: "30 хв",
         difficulty: "Середня",
         calories: "520 ккал",
@@ -58,7 +58,7 @@ const recipes = [
         id: 4,
         title: "Шоколадний фондан",
         category: "dessert",
-        image: "https://unsplash.com",
+        image: "img/4.jpg",
         time: "15 хв",
         difficulty: "Важко",
         calories: "450 ккал",
@@ -71,7 +71,99 @@ const recipes = [
             { amount: 30, unit: "г", name: "Борошно" }
         ],
         steps: ["Розтопіть шоколад разом з вершковим маслом на водяній бані.", "Збийте яйця з цукром до пивної піни.", "З'єднайте шоколадну масу з яйцями, поступово додаючи борошно.", "Розлийте у змащені форми та випікайте 7-8 хвилин при 200 градусах.", "Ріжте обережно, щоб середина залишилась рідкою."]
+    },
+    {
+        id: 5,
+        title: "Тости з авокадо та яйцем пашот",
+        category: "breakfast",
+        image: "img/5.jpg",
+        time: "15 хв",
+        difficulty: "Легко",
+        calories: "320 ккал",
+        baseServings: 1,
+        ingredients: [
+            { amount: 1, unit: "шт", name: "Стигле авокадо" },
+            { amount: 1, unit: "шт", name: "Яйце" },
+            { amount: 2, unit: "скибочки", name: "Цільнозерновий хліб" },
+            { amount: 1, unit: "ч.л.", name: "Лимонний сік" },
+            { amount: 0, unit: "", name: "Сіль, перець та насіння кунжуту" }
+        ],
+        steps: ["Підсушіть скибочки хліба на сухій сковороді або в тостері.", "Розімніть м'якоть авокадо виделкою, додавши лимонний сік, сіль та перець.", "Зваріть яйце пашот у слабо киплячій воді з додаванням оцту протягом 3 хвилин.", "Викладіть авокадо-масу на тости, зверху обережно покладіть яйце пашот.", "Прикрасьте насіння кунжуту."]
+    },
+    {
+        id: 6,
+        title: "Крем-суп із печериць",
+        category: "lunch",
+        image: "img/6.jpg",
+        time: "35 хв",
+        difficulty: "Середня",
+        calories: "280 ккал",
+        baseServings: 3,
+        ingredients: [
+            { amount: 400, unit: "г", name: "Печериці" },
+            { amount: 200, unit: "мл", name: "Вершки 20%" },
+            { amount: 3, unit: "шт", name: "Картопля" },
+            { amount: 1, unit: "шт", name: "Цибуля ріпчаста" },
+            { amount: 20, unit: "г", name: "Вершкове масло" }
+        ],
+        steps: ["Наріжте цибулю та гриби, обсмажте їх на вершковому маслі до золотої скоринки.", "Відваріть нарізану картоплю у невеликій кількості води до готовності.", "Додайте обсмажені гриби з цибулею до картоплі та збийте все блендером до однорідності.", "Влийте теплі вершки, додайте сіль, перець за смаком і прогрійте суп ще 2-3 хвилини.", "Подавайте з сухариками."]
+    },
+    {
+        id: 7,
+        title: "Куряче філе в кисло-солодкому соусі",
+        category: "dinner",
+        image: "img/7.jpg",
+        time: "25 хв",
+        difficulty: "Середня",
+        calories: "410 ккал",
+        baseServings: 2,
+        ingredients: [
+            { amount: 400, unit: "г", name: "Куряче філе" },
+            { amount: 1, unit: "шт", name: "Болгарський перець" },
+            { amount: 100, unit: "г", name: "Консервовані ананаси" },
+            { amount: 2, unit: "ст.л.", name: "Соєвий соус" },
+            { amount: 1, unit: "ст.л.", name: "Томатна паста" }
+        ],
+        steps: ["Наріжте куряче філе кубиками та обсмажте на великому вогні протягом 7 хвилин.", "Додайте нарізаний соломкою болгарський перець та шматочки ананасів.", "Змішайте соєвий соус, томатну пасту та трохи сиропу від ананасів.", "Влийте соус у сковороду до курки та овочів, тушкуйте на середньому вогні ще 10 хвилин.", "Подавайте гарячим, ідеально з вареним рисом."]
+    },
+    {
+        id: 8,
+        title: "Ягідний чізкейк без випічки",
+        category: "dessert",
+        image: "img/8.jpg",
+        time: "40 хв",
+        difficulty: "Середня",
+        calories: "340 ккал",
+        baseServings: 4,
+        ingredients: [
+            { amount: 200, unit: "г", name: "Пісочне печиво" },
+            { amount: 80, unit: "г", name: "Вершкове масло" },
+            { amount: 400, unit: "г", name: "Кисломолочний сир або крем-сир" },
+            { amount: 150, unit: "г", name: "Свіжі або заморожені ягоди" },
+            { amount: 15, unit: "г", name: "Желатин" }
+        ],
+        steps: ["Подрібніть печиво в крихту, змішайте з розтопленим вершковим маслом і утрамбуйте на дно форми.", "Поставте форму в холодильник на 15 хвилин.", "Замочіть желатин за інструкцією. Збийте крем-сир із цукровою пудрою, потім обережно введіть розчинений желатин.", "Викладіть сирну масу на основу з печива та поверніть у холодильник до застигання.", "Прикрасьте зверху ягодами перед подачею."]
+    },
+    {
+        id: 9,
+        title: "Грецький салат",
+        category: "lunch",
+        image: "img/9.jpg",
+        time: "10 хв",
+        difficulty: "Легко",
+        calories: "190 ккал",
+        baseServings: 2,
+        ingredients: [
+            { amount: 2, unit: "шт", name: "Огірки свіжі" },
+            { amount: 2, unit: "шт", name: "Стиглі томати" },
+            { amount: 0.5, unit: "шт", name: "Синя цибуля" },
+            { amount: 100, unit: "г", name: "Сир Фета" },
+            { amount: 50, unit: "г", name: "Оливки Каламата" },
+            { amount: 2, unit: "ст.л.", name: "Оливкова олія Extra Virgin" }
+        ],
+        steps: ["Наріжте огірки та томати великими кубиками.", "Синю цибулю наріжте тонкими півкільцями.", "Викладіть овочі у глибоку салатницю, додайте оливки та обережно перемішайте.", "Зверху викладіть цілий пласт сиру Фета або наріжте його великими кубиками.", "Полийте оливковою олією та притрусіть сушеним орегано за смаком."]
     }
+
 ];
 
 let favorites = JSON.parse(localStorage.getItem("recipe_favs")) || [];
@@ -221,10 +313,11 @@ function openRecipeDetail(id) {
             <h3 class="section-title">Відгуки кулінарів</h3>
             <div class="reviews-list" id="reviews-list-container">
                 ${recipeReviews.length === 0 ? "<p>Відгуків ще немає. Будьте першим!</p>" : 
-                    recipeReviews.map(rev => `
+                    recipeReviews.map((rev, index) => `
                         <div class="review-item">
                             <div class="review-user">${rev.name}</div>
                             <div class="review-text">${rev.text}</div>
+                            <button class="delete-review-btn" data-index="${index}">❌</button>
                         </div>
                     `).join("")
                 }
@@ -232,8 +325,8 @@ function openRecipeDetail(id) {
 
             <form class="review-form" id="review-form">
                 <input type="text" id="review-name" placeholder="Ваше ім'я" required>
-                <textarea id="review-text" placeholder="Ваш відгук" required></textarea>
-                <button type="submit">Залишити відгук</button>
+                <textarea id="review-text" rows="4" placeholder="Ваш відгук..." required></textarea>
+                <button type="submit">Надіслати відгук</button>
             </form>
         </div>
     `;
@@ -241,6 +334,7 @@ function openRecipeDetail(id) {
     const decBtn = document.getElementById("decrease-servings");
     const incBtn = document.getElementById("increase-servings");
     const rForm = document.getElementById("review-form");
+    const reviewsListContainer = document.getElementById("reviews-list-container");
 
     if (decBtn) decBtn.addEventListener("click", () => updateServings(recipe, -1));
     if (incBtn) incBtn.addEventListener("click", () => updateServings(recipe, 1));
@@ -251,7 +345,48 @@ function openRecipeDetail(id) {
             addReview(id);
         });
     }
+
+    if (reviewsListContainer) {
+        reviewsListContainer.addEventListener("click", (e) => {
+            if (e.target.classList.contains("delete-review-btn")) {
+                const reviewIndex = parseInt(e.target.getAttribute("data-index"));
+                deleteReview(id, reviewIndex);
+            }
+        });
+    }
 }
+
+function addReview(recipeId) {
+    const nameInput = document.getElementById("review-name");
+    const textInput = document.getElementById("review-text");
+    if (!nameInput || !textInput) return;
+
+    const newReview = {
+        name: nameInput.value,
+        text: textInput.value
+    };
+
+    if (!reviews[recipeId]) {
+        reviews[recipeId] = [];
+    }
+
+    reviews[recipeId].push(newReview);
+    localStorage.setItem("recipe_reviews", JSON.stringify(reviews));
+
+    nameInput.value = "";
+    textInput.value = "";
+
+    openRecipeDetail(recipeId);
+}
+
+function deleteReview(recipeId, reviewIndex) {
+    if (reviews[recipeId]) {
+        reviews[recipeId].splice(reviewIndex, 1);
+        localStorage.setItem("recipe_reviews", JSON.stringify(reviews));
+        openRecipeDetail(recipeId);
+    }
+}
+
 
 function renderIngredientsList(recipe) {
     return recipe.ingredients.map(ing => {

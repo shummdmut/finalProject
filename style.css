@@ -429,3 +429,27 @@ body {
     min-width: 20px;
     text-align: center;
 }
+.review-item {
+    position: relative;
+    padding-right: 40px;
+}
+
+.delete-review-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: #e63946;
+    font-size: 16px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s, transform 0.2s;
+    padding: 4px;
+    line-height: 1;
+}
+
+.delete-review-btn:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
