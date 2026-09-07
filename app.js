@@ -98,7 +98,9 @@ function init() {
 }
 
 function renderRecipes(recipesToRender) {
+    if (!recipesContainer) return;
     recipesContainer.innerHTML = "";
+    
     if (recipesToRender.length === 0) {
         recipesContainer.innerHTML = "<p class='no-results'>Рецептів не знайдено.</p>";
         return;
@@ -135,8 +137,8 @@ function renderRecipes(recipesToRender) {
 }
 
 function filterRecipes() {
-    const query = searchInput.value.toLowerCase();
-    const category = categoryFilter.value;
+    const query = searchInput ? searchInput.value.toLowerCase() : "";
+    const category = categoryFilter ? categoryFilter.value : "all";
 
     let filtered = recipes.filter(recipe => {
         const matchesSearch = recipe.title.toLowerCase().includes(query) || 
@@ -167,17 +169,17 @@ function toggleFavorite(id, button) {
 }
 
 function updateFavBadge() {
-    favCount.textContent = favorites.length;
+    if (favCount) favCount.textContent = favorites.length;
 }
 
 function openRecipeDetail(id) {
     const recipe = recipes.find(r => r.id === id);
-    if (!recipe) return;
+    if (!recipe || !recipeDetailContainer) return;
 
     currentServings = recipe.baseServings;
 
-    homePage.classList.remove("active");
-    detailPage.classList.add("active");
+    if (homePage) homePage.classList.remove("active");
+    if (detailPage) detailPage.classList.add("active");
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
     const recipeReviews = reviews[id] || [];
@@ -230,16 +232,26 @@ function openRecipeDetail(id) {
 
             <form class="review-form" id="review-form">
                 <input type="text" id="review-name" placeholder="Ваше ім'я" required>
-`;}
+                <textarea id="review-text" placeholder="Ваш відгук" required></textarea>
+                <button type="submit">Залишити відгук</button>
+            </form>
+        </div>
+    `;
 
-    document.getElementById("decrease-servings").addEventListener("click", () => updateServings(recipe, -1));
-    document.getElementById("increase-servings").addEventListener("click", () => updateServings(recipe, 1));
+    const decBtn = document.getElementById("decrease-servings");
+    const incBtn = document.getElementById("increase-servings");
+    const rForm = document.getElementById("review-form");
 
-    document.getElementById("review-form").addEventListener("submit", (e) => {
-        e.preventDefault();
-        addReview(id);
-    });
+    if (decBtn) decBtn.addEventListener("click", () => updateServings(recipe, -1));
+    if (incBtn) incBtn.addEventListener("click", () => updateServings(recipe, 1));
 
+    if (rForm) {
+        rForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            addReview(id);
+        });
+    }
+}
 
 function renderIngredientsList(recipe) {
     return recipe.ingredients.map(ing => {
@@ -257,62 +269,74 @@ function updateServings(recipe, change) {
     if (newServings < 1) return;
     
     currentServings = newServings;
-    document.getElementById("servings-count").textContent = currentServings;
-    document.getElementById("ingredients-list-container").innerHTML = renderIngredientsList(recipe);
+    const sCount = document.getElementById("servings-count");
+    const ingContainer = document.getElementById("ingredients-list-container");
+    
+    if (sCount) sCount.textContent = currentServings;
+    if (ingContainer) ingContainer.innerHTML = renderIngredientsList(recipe);
 }
 
 function addReview(recipeId) {
     const nameInput = document.getElementById("review-name");
     const textInput = document.getElementById("review-text");
-
+    if (!nameInput || !textInput) return;
+    
     const newReview = {
         name: nameInput.value,
         text: textInput.value
     };
-
+    
     if (!reviews[recipeId]) {
         reviews[recipeId] = [];
     }
-
+    
     reviews[recipeId].push(newReview);
     localStorage.setItem("recipe_reviews", JSON.stringify(reviews));
-
+    
     nameInput.value = "";
     textInput.value = "";
-
+    
     openRecipeDetail(recipeId);
 }
 
 function setupEventListeners() {
-    searchInput.addEventListener("input", filterRecipes);
-    categoryFilter.addEventListener("change", filterRecipes);
-
-    navHome.addEventListener("click", () => {
-        showFavoritesOnly = false;
-        navHome.classList.add("active");
-        navFavorites.classList.remove("active");
-        detailPage.classList.remove("active");
-        homePage.classList.add("active");
-        filterRecipes();
-    });
-
-    navFavorites.addEventListener("click", () => {
-        showFavoritesOnly = true;
-        navHome.classList.remove("active");
-        navFavorites.classList.add("active");
-        detailPage.classList.remove("active");
-        homePage.classList.add("active");
-        filterRecipes();
-    });
-
-    logoBtn.addEventListener("click", () => {
-        navHome.click();
-    });
-
-    backToHome.addEventListener("click", () => {
-        detailPage.classList.remove("active");
-        homePage.classList.add("active");
-    });
+    if (searchInput) searchInput.addEventListener("input", filterRecipes);
+    if (categoryFilter) categoryFilter.addEventListener("change", filterRecipes);
+    
+    if (navHome) {
+        navHome.addEventListener("click", () => {
+            showFavoritesOnly = false;
+            navHome.classList.add("active");
+            if (navFavorites) navFavorites.classList.remove("active");
+            if (detailPage) detailPage.classList.remove("active");
+            if (homePage) homePage.classList.add("active");
+            filterRecipes();
+        });
+    }
+    
+    if (navFavorites) {
+        navFavorites.addEventListener("click", () => {
+            showFavoritesOnly = true;
+            if (navHome) navHome.classList.remove("active");
+            navFavorites.classList.add("active");
+            if (detailPage) detailPage.classList.remove("active");
+            if (homePage) homePage.classList.add("active");
+            filterRecipes();
+        });
+    }
+    
+    if (logoBtn) {
+        logoBtn.addEventListener("click", () => {
+            if (navHome) navHome.click();
+        });
+    }
+    
+    if (backToHome) {
+        backToHome.addEventListener("click", () => {
+            if (detailPage) detailPage.classList.remove("active");
+            if (homePage) homePage.classList.add("active");
+        });
+    }
 }
 
 init();
